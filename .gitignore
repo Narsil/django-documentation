@@ -1,0 +1,6 @@
+# temporary python files
+*.pyc
+
+# temporary files from vim
+*.swp
+
