@@ -1,23 +1,24 @@
 # Create your views here.
-from django.http import HttpResponse
-from app_settings import DOCUMENTATION_HTML_ROOT, DOCUMENTATION_XSENDFILE,\
-        DOCUMENTATION_ACCESS_FUNCTION
+from django.http import HttpResponse, Http404
+import app_settings
+from django.views.static import serve
 from django.contrib.auth.decorators import user_passes_test
-import django
 import mimetypes
 
 
-@user_passes_test(DOCUMENTATION_ACCESS_FUNCTION)
+@user_passes_test(app_settings.DOCUMENTATION_ACCESS_FUNCTION)
 def documentation(request, path):
-    if not DOCUMENTATION_XSENDFILE:
-        return django.views.static.serve(
+    if not app_settings.DOCUMENTATION_ACCESS_FUNCTION(request.user):
+        raise Http404
+    if not app_settings.DOCUMENTATION_XSENDFILE:
+        return serve(
                 request,
                 path,
-                DOCUMENTATION_HTML_ROOT)
+                app_settings.DOCUMENTATION_HTML_ROOT)
     mimetype, encoding = mimetypes.guess_type(path)
     response = HttpResponse(mimetype=mimetype)
 
     response['Content-Encoding'] = encoding
     response['Content-Disposition'] = ''
-    response['X-Sendfile'] = "".join([DOCUMENTATION_HTML_ROOT, path])
+    response['X-Sendfile'] = "".join([app_settings.DOCUMENTATION_HTML_ROOT, path])
     return response

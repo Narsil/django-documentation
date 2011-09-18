@@ -1,4 +1,5 @@
 from django.conf import settings
+import os
 
 DOCUMENTATION_ROOT = getattr(settings, 'DOCUMENTATION_ROOT', None)
 DOCUMENTATION_ACCESS_FUNCTION = getattr(settings,
@@ -12,8 +13,8 @@ if not DOCUMENTATION_ACCESS_FUNCTION:
 DOCUMENTATION_HTML_ROOT = getattr(
         settings,
         'DOCUMENTATION_HTML_ROOT',
-        DOCUMENTATION_ROOT + '_build/html/')
+        os.path.join(DOCUMENTATION_ROOT, '_build/html/'))
 DOCUMENTATION_XSENDFILE = getattr(
         settings,
-        'DOCUMENTATION_DEBUG',
+        'DOCUMENTATION_XSENDFILE',
         not settings.DEBUG)
