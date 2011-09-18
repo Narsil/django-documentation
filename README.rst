@@ -19,6 +19,7 @@ Installing django-simple-feedback
 
 Install into your python path using pip::
 
+    pip install django-documentation
     pip install -e git+git://github.com/Narsil/django-documentation.git#egg=django-documentation
 
 Add *'documentation'* to your INSTALLED_APPS in settings.py::
@@ -39,14 +40,14 @@ Settings
 ~~~~~~~~
 
 Set up where is your documentation, and a function that has a user for argument
-and returns **True** if user is allowed. If you plan on using 
+and returns **True** if user is allowed to see the doc. If you plan on using 
 ``lambda user: True``, then you probably should not be using this app, as
 staticfiles would be better suited for this task. ::
 
     DOCUMENTATION_ROOT = '/path/to/docs/'
     DOCUMENTATION_ACCESS_FUNCTION = lambda user: user.is_staff
 
-The DOCUMENATION_ROOT is the root of your sphinx doc, if you html docs is 
+The DOCUMENATION_ROOT is the root of your sphinx doc where the Makefile exists, if you html docs is 
 placed somewhere else than ``DOCUMENTATION_ROOT + '_build/html/'`` then you
 can override it with::
 
