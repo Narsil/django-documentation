@@ -2,11 +2,9 @@
 from django.http import HttpResponse, Http404
 import app_settings
 from django.views.static import serve
-from django.contrib.auth.decorators import user_passes_test
 import mimetypes
 
 
-@user_passes_test(app_settings.DOCUMENTATION_ACCESS_FUNCTION)
 def documentation(request, path):
     if not app_settings.DOCUMENTATION_ACCESS_FUNCTION(request.user):
         raise Http404
@@ -20,5 +18,6 @@ def documentation(request, path):
 
     response['Content-Encoding'] = encoding
     response['Content-Disposition'] = ''
-    response['X-Sendfile'] = "".join([app_settings.DOCUMENTATION_HTML_ROOT, path])
+    response['X-Sendfile'] = "".join([app_settings.DOCUMENTATION_HTML_ROOT,
+        path])
     return response
