@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 METADATA = dict(
     name='django-documentation',
-    version='1.0',
+    version='1.1',
 
     author='Nicolas Patry',
     author_email='nicolas@kwyk.fr',
