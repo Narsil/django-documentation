@@ -1,7 +1,7 @@
 # Create your views here.
 from django.http import HttpResponse, Http404
-import app_settings
 from django.views.static import serve
+from documentation import app_settings
 import mimetypes
 
 
