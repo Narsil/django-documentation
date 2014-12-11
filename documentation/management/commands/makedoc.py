@@ -10,6 +10,5 @@ class Command(BaseCommand):
     def handle(self, *labels, **options):
         current_path = os.getcwd()
         os.chdir(app_settings.DOCUMENTATION_ROOT)
-        print os.getcwd()
         os.system("make html")
         os.chdir(current_path)
