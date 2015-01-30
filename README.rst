@@ -34,7 +34,8 @@ Add `'documentation'` to your INSTALLED_APPS in settings.py::
 
 Add *django-documentation* to your urls:: 
 
-    urlpatterns = patterns( '',
+    urlpatterns = patterns(
+        '',
         ....
         url(r'^docs/', include('documentation.urls'), namespace='documentation'),
     )
