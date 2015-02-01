@@ -4,5 +4,7 @@ admin.autodiscover()
 
 urlpatterns = patterns(
     'documentation.views',
-    url(r'^(?P<path>.*)$', 'documentation', name='path'),
+
+    url(r'^$', 'documentation', 'index.html'),
+    url(r'^(?P<path>.*)$', 'documentation', name="path"),
 )
