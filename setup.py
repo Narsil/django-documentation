@@ -20,7 +20,7 @@ METADATA = dict(
 
     include_package_data=True,
 
-    packages=find_packages(),
+    packages=find_packages(exclude=['example_documentation']),
 
     keywords='django documentation sphinx authentification',
     classifiers=[
