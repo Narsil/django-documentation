@@ -9,8 +9,10 @@ METADATA = dict(
     author='Nicolas Patry',
     author_email='nicolas@kwyk.fr',
 
-    description="""Provides a way to integrate a protected sphinx based
-    documentation within your django app.""",
+    description=(
+        "Provides a way to integrate a protected sphinx based documentation "
+        "within your django app."
+    ),
     long_description=open('README.rst').read(),
 
     url='http://github.com/Narsil/django-documentation',
