@@ -9,8 +9,10 @@ METADATA = dict(
     author='Nicolas Patry',
     author_email='nicolas@kwyk.fr',
 
-    description="""Provides a way to integrate a protected sphinx based
-    documentation within your django app.""",
+    description=(
+        "Provides a way to integrate a protected sphinx based documentation "
+        "within your django app."
+    ),
     long_description=open('README.rst').read(),
 
     url='http://github.com/Narsil/django-documentation',
@@ -20,7 +22,7 @@ METADATA = dict(
 
     include_package_data=True,
 
-    packages=find_packages(),
+    packages=find_packages(exclude=['example_documentation']),
 
     keywords='django documentation sphinx authentification',
     classifiers=[
