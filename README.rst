@@ -5,7 +5,7 @@ Django-documentation
 This `Django <http://djangoproject.com>`_ app has for purpose to integrate
 protected sphinx based documentation .
 
-ARCHIVED : go look at [django-doc](https://github.com/littlepea/django-docs)
+**ARCHIVED : go look at `<https://github.com/littlepea/django-docs>`_**
 
 
 Installation
